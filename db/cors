@@ -1,0 +1,4 @@
+fixing cors issue (it is backend isssue)
+cors issue == when browser try hit endpoint it shows that issue by browser bcoz it seems request is coming from other domain and backend is at another domain
+const cors = require('cors')
+app.use(cors()) //use as middleware
