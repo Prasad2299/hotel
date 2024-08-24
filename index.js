@@ -6,11 +6,11 @@ require("./db/config");
 const User = require("./db/User");
 const product = require("./db/Product");
 const Product = require("./db/Product");
-
+require("dotenv").config();
 const app = express();
 app.use(express.json()); //middleware use to access json data sent by postman or react application
 app.use(cors());
-const Jwtkey = "prasad";
+const PORT = process.env.PORT || 3000;
 
 const verifyToken = (req, res, next) => {
   let token = req.headers["authorization"];
@@ -111,4 +111,6 @@ app.get("/search/:key", verifyToken, async (req, res) => {
   res.send(result);
 });
 
-app.listen(4000);
+app.listen(PORT, () => {
+  console.log("server started on port-=>", PORT);
+});
