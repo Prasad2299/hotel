@@ -10,7 +10,8 @@ require("dotenv").config();
 const app = express();
 app.use(express.json()); //middleware use to access json data sent by postman or react application
 app.use(cors());
-const PORT = process.env.PORT || 3000;
+const Jwtkey = process.env.Jwtkey;
+const PORT = process.env.PORT || 4000;
 
 const verifyToken = (req, res, next) => {
   let token = req.headers["authorization"];
