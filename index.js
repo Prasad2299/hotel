@@ -32,7 +32,8 @@ const verifyToken = (req, res, next) => {
 
 app.get("/",(req,res)=>{
   console.log("API IS WORKING FINE");
-})
+  res.send("API IS WORKING FINE");
+});
 app.post("/register", async (req, res) => {
   let user = new User(req.body);
   let result = await user.save();
